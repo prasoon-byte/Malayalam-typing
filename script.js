@@ -15,7 +15,7 @@ const layoutRows = [
     [';', 'ച'], [':', 'ഛ'], ['p', 'ജ'], ['P', 'ഝ'], ['}', 'ഞ']
   ],
   [ // Row 5: Consonants - Part 3 (One Malayalam Character per Key)
-    ['`', 'ട'], ['"', 'ഠ'], ['[', 'ഡ'], ['{', 'ഢ'], ['C', 'ണ']
+    [''', 'ട'], ['"', 'ഠ'], ['[', 'ഡ'], ['{', 'ഢ'], ['C', 'ണ']
   ],
   [ // Row 6: Consonants - Part 4 (One Malayalam Character per Key)
     ['l', 'ത'], ['L', 'ഥ'], ['o', 'ദ'], ['O', 'ധ'], ['V', 'ന']
