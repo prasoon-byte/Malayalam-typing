@@ -98,7 +98,6 @@ function containsMalayalam(text) {
   return malayalamRegex.test(text);
 }
 
-// Add event listener for typing
 document.addEventListener('keydown', (e) => {
   const key = e.key;
 
@@ -109,19 +108,25 @@ document.addEventListener('keydown', (e) => {
     return;
   }
 
-  // Check mapped Malayalam character or the original Latin character
+  // ✅ Handle spacebar (FIX)
+  if (key === ' ') {
+    e.preventDefault();
+    typingBox.value += ' ';
+    return;
+  }
+
+  // Handle mapped Malayalam characters
   const char = keyMap[key];
   if (char) {
     e.preventDefault();
     typingBox.value += char;
 
-    // Change font to Malayalam if the typed text contains Malayalam characters
-    if (containsMalayalam(typingBox.value)) {
-      typingBox.style.fontFamily = malayalamFont;
-    } else {
-      typingBox.style.fontFamily = defaultFont;
-    }
+    // Switch to Malayalam font if Malayalam chars present
+    typingBox.style.fontFamily = containsMalayalam(typingBox.value)
+      ? malayalamFont
+      : defaultFont;
 
+    // Highlight the virtual key if it exists
     const keyElem = document.getElementById(`key-${key.toUpperCase()}`);
     if (keyElem) {
       keyElem.classList.add('highlight');
